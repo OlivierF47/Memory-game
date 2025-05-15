@@ -38,5 +38,5 @@ function reset(){
     shuffle();
 }
 
-card.forEach(card => card.addEventListener('click', flipCard));
+card.forEach(card => card.addEventListener('click', flip));
 resBtn.addEventListener("click", reset);
