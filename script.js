@@ -4,12 +4,8 @@ const card = document.querySelectorAll('.card');
 let chrono = document.getElementsByClassName('chronometre');
 const resBtn = document.getElementsById('reset-game-btn');
 
-
 let card1;
 let card2; 
-let cardFlipped = false;
-
-
 
 function shuffle() {
   card.forEach(cards => {
@@ -19,15 +15,12 @@ function shuffle() {
 }
 
 function flip(card){
-    cardFlipped = true;
     card.classList.add('flip');
 }
 
-card.addEventListener("click", flip)
-resBtn.addEventListener("click", shuffle);
 
 function isSame(){
-    if (card1.className = card2.className){
+    if (card1.data.image === card2.data.image){
         return;
     }else{
         card1.classList.remove('flip');
@@ -35,3 +28,18 @@ function isSame(){
         return;
     }
 }
+
+function win(){
+   alert("Well done you win the game");
+}
+ 
+function reset(){
+    if (card.forEach(cards => card.classList = 'flip')){
+        card.classList.remove('flip');
+    }
+    shuffle();
+    
+}
+
+card.addEventListener("click", flip)
+resBtn.addEventListener("click", reset);
