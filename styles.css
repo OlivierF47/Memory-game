@@ -15,12 +15,19 @@ body {
     font-family: Orbitron, sans-serif;
 }
 
-.game-menu {
+.chronometre-container {
     display: flex;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
     gap: 60px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
 img {
