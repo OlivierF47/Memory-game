@@ -11,17 +11,21 @@
     </head>
     <body>
         <h1>MEMORY CARD GAME</h1>
-            <div class="chronometre-container">
-            <span class="chronometre">Time left: <strong><span id="chronoText">00:00</span></strong></span>
-            <div class="buttons">
-                <button id="start" class="button">Start</button>
-                <button id="stop" class="button">Stop</button>
-                <button id="reset" class="button">Reset</button>   
+            <div class="top-bar">
+                <div class="chronometre-container">
+                <span class="chronometre">Time left: <strong><span id="chronoText">00:00</span></strong></span>
+                    <div class="buttons">
+                        <button id="start" class="button">Start</button>
+                        <button id="stop" class="button">Stop</button>
+                        <button id="reset" class="button">Reset</button>   
+                    </div>
+                </div>
             </div>
+            <div class="score-and-level">
+                <span class="score">Score: <strong><span id="scoreText"></span></strong></span>
+                <span class="difficulty">Difficulty: <strong><span id="difficultyText"></span></strong></span>
             </div>
-            <span class="score">Score: <strong><span id="scoreText"></span></strong></span>
-            <span class="difficulty">Difficulty: <strong><span id="difficultyText"></span></strong></span>
-        <div class="container">
+            <div class="container">
             <div class="card-container">
                 <div class="row">
                 <div class="card" data-image="cat">
