@@ -34,12 +34,9 @@ function win(){
 }
  
 function reset(){
-    if (card.forEach(cards => card.classList = 'flip')){
-        card.classList.remove('flip');
-    }
+    (card.forEach(cards => card.classList.remove('flip')))
     shuffle();
-    
 }
 
-card.addEventListener("click", flip)
+card.forEach(card => card.addEventListener('click', flipCard));
 resBtn.addEventListener("click", reset);
