@@ -3,11 +3,11 @@ const front = document.getElementsByClassName('front-card');
 const card = document.querySelectorAll('.card');
 let chrono = document.getElementsByClassName('chronometre');
 const resBtn = document.getElementById('reset-game-btn');
-
-
 const chronoText = document.getElementById("chronoText");
+
+
+<<<<<<< HEAD
 const startBtn = document.getElementById("start");
-const resetBtn = document.getElementById("reset");
 const stopBtn = document.getElementById("stop");
 
 
@@ -16,6 +16,7 @@ let card1;
 let card2; 
 let cardFlipped = false;
 
+//chrono
 let minutes = 0;
 let seconds = 0;
 let timeout;
@@ -28,6 +29,8 @@ const start = () => {
   }
 };
 
+=======
+>>>>>>> 1488775868cc9df55f4029364e88b8bbbc7d03d7
 const stop = () => {
   if(!isStopped) {
     isStopped = true;
@@ -70,11 +73,19 @@ const reset = () => {
   minutes = 0;
   clearTimeout(timeout);
 }
+<<<<<<< HEAD
+//le bouton start sera remplacé par un addEvent(click) sur une image
+startBtn.addEventListener("click", start);
+stopBtn.addEventListener("click", stop);
+resBtn.addEventListener("click", reset); // quand on resetera une game, le chrono sera reset aussi
+//fin chrono
+=======
 
 startBtn.addEventListener("click", start);
 stopBtn.addEventListener("click", stop);
 resetBtn.addEventListener("click", reset);
 
+>>>>>>> 1488775868cc9df55f4029364e88b8bbbc7d03d7
 
 function shuffle() {
   card.forEach(cards => {
@@ -88,7 +99,11 @@ function flip(card){
     card.classList.add('flip');
 }
 
+<<<<<<< HEAD
+card.addEventListener("click", flip);
+=======
 card.addEventListener("click", flip)
+>>>>>>> 1488775868cc9df55f4029364e88b8bbbc7d03d7
 resBtn.addEventListener("click", shuffle);
 
 function isSame(){
