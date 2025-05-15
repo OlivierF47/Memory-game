@@ -62,13 +62,8 @@ img {
     transition: transform .5s;
 }
 
-.flip {
+.card:active{
     transform: rotateY(180deg);
-}
-
-.card:active {
-    transform: scale(0.95);
-    transition: transform .2s;
 }
 
 .front-card, .back-card {
@@ -84,6 +79,10 @@ img {
 .front-card {
     transform: rotateY(180deg);
 }
+
+.back-card{
+}
+
 
 button {
     padding: 10px 20px;
