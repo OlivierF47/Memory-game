@@ -10,7 +10,14 @@
         
         <h1>Card Game</h1>
         <span class="score">Score: <strong><span id="scoreText"></span></strong></span>
-        <span class="chronometre">Time left: <strong><span id="chronoText"></span></strong></span>
+        <div class="chronometre-container">
+        <span class="chronometre">Time left: <strong><span id="chronoText">00:00</span></strong></span>
+        <div class="buttons">
+            <button id="reset" class="button">Reset</button>
+            <button id="stop" class="button">Stop</button>
+            <button id="start" class="button">Start</button>
+        </div>
+        </div>
         <span class="difficulty">Difficulty: <strong><span id="difficultyText"></span></strong></span>
         <button id="reset-game-btn">Reset</button>
         <div class="container">
