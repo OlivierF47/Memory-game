@@ -7,9 +7,12 @@
 :root {
     --black-color: #000000;
     --white-color: #ffffff;
-    --green-color: #4CAF50;
-    --hover-color: #31f23b;
-    --blue-color: #1C7CCC;
+    --yellow-color: #f4c531;
+}
+
+body {
+    background-color: var(--yellow-color);
+    font-family: Orbitron, sans-serif;
 }
 
 .game-menu {
@@ -52,7 +55,6 @@ img {
     width: 200px; 
     height: 200px; 
     position: relative;
-    background-color: var(--black-color);
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -72,7 +74,7 @@ img {
     padding: 20px;
     position: absolute;
     border-radius: 10px;
-    background: var(--blue-color);
+    background: var(--white-color);
     backface-visibility: hidden;
 }
 
@@ -80,15 +82,12 @@ img {
     transform: rotateY(180deg);
 }
 
-.back-card{
-}
-
-
 button {
+    font-family: Orbitron, sans-serif;
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
-    background-color: var(--green-color);
+    background-color: var(--black-color);
     color: var(--white-color);
     border: none;
     border-radius: 5px;
@@ -96,7 +95,8 @@ button {
 }
 
 button:hover {
-    background-color: var(--hover-color);
+    background-color: var(--white-color);
+    color: var(--black-color)
 }
 
 h1 {
