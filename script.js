@@ -4,6 +4,8 @@ const stopBtn = document.getElementById("stop");
 const resetBtn = document.getElementById("reset");
 const resGameBtn = document.getElementById("reset-game-btn");
 const chronoText = document.getElementById("chronoText");
+const winTxt = document.querySelector(".wintext");
+
 
 let card1 = null;
 let card2 = null;
@@ -14,6 +16,8 @@ let minutes = 0;
 let seconds = 0;
 let timeout;
 let isStopped = true;
+let displayMin;
+let displaySec;
 
 const start = () => {
   if (isStopped) {
@@ -38,8 +42,8 @@ const passTime = () => {
     seconds = 0;
   }
 
-  let displaySec = seconds < 10 ? `0${seconds}` : seconds;
-  let displayMin = minutes < 10 ? `0${minutes}` : minutes;
+   displaySec = seconds < 10 ? `0${seconds}` : seconds;
+   displayMin = minutes < 10 ? `0${minutes}` : minutes;
 
   chronoText.textContent = `${displayMin}:${displaySec}`;
   timeout = setTimeout(passTime, 1000);
@@ -53,13 +57,13 @@ const resetChrono = () => {
   clearTimeout(timeout);
 };
 
-startBtn.addEventListener("click", start);
 stopBtn.addEventListener("click", stop);
 resetBtn.addEventListener("click", resetChrono);
 resGameBtn.addEventListener("click", () => {
   resetChrono();
   shuffle();
   cardElements.forEach(card => card.classList.remove('flip'));
+  resetText();
 });
 
 function flip(card) {
@@ -96,8 +100,10 @@ function checkMatch() {
   if (matchpairs === 4){
     setTimeout(() =>{
     win();
+    stop();
   },1000)
   matchpairs = 0;
+  
   }
 }
 
@@ -108,9 +114,15 @@ function shuffle() {
 }
 
 cardElements.forEach(card => {
-  card.addEventListener('click', () => flip(card));
+  card.addEventListener('click', () => 
+    flip(card));
+  card.addEventListener('click', () =>
+  start());
 });
 
 function win(){
-    alert(``);
+    winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec}`
+}
+function resetText(){
+   winTxt.innerText = ``;
 }
