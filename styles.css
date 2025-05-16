@@ -111,9 +111,8 @@ h1 {
   font-size: 1.7rem;
 }
 
-.buttons {
-  display: flex;
-  gap: 30px;
+p {
+  font-size: 1.3rem;
 }
 
 #reset-game-btn {
