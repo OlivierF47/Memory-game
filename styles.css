@@ -81,7 +81,7 @@ img {
     transition: transform .5s;
 }
 
-.card:active{
+.card.flip{
     transform: rotateY(180deg);
 }
 
