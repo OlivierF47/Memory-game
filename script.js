@@ -120,7 +120,7 @@ cardElements.forEach(card => {
   card.addEventListener('click', () => {
     flip(card);
     movements++;
-    movementsTxt.innerText = movements / 2;
+    movementsTxt.innerText = `Moves: ${movements / 2}`;
   });
   card.addEventListener('click', () => {
     start();
