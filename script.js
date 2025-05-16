@@ -80,7 +80,9 @@ function flip(card) {
     checkMatch();
   }
 }
+
 let matchpairs = 0;
+
 function checkMatch() {
   let img1 = card1.dataset.image;
   let img2 = card2.dataset.image;
@@ -127,12 +129,23 @@ cardElements.forEach(card => {
 });
 
 function win(){
-    winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec}`
-    movementsTxt.innerText = `mooves: ${movements / 2}` ;
+  if(displaySec <= 15){
+    winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec} you are the goat`
+     ;}else if (displaySec <= 30){
+       winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec} that's very good`
+     }else if (displaySec <=45){
+       winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec} that's good enough`
+     }else if (displayMin >= 1){
+      winTxt.innerText = `You finish in ${displayMin} : ${displaySec} you really need to train`
+     }
+
+     movementsTxt.innerText = `mooves: ${movements / 2}`
 }
 function resetText(){
    winTxt.innerText = ``;
 }
+
+
 
 let movementsTxt = document.querySelector(".movements");
 
