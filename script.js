@@ -128,7 +128,7 @@ cardElements.forEach(card => {
 
 function win(){
     winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec}`
-    movementsTxt.innerText = `mooves: ${movements / 2}`;
+    movementsTxt.innerText = `mooves: ${movements / 2}` ;
 }
 function resetText(){
    winTxt.innerText = ``;
