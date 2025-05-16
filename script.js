@@ -78,14 +78,14 @@ resBtn.addEventListener("click", reset); // quand on resetera une game, le chron
 //fin chrono
 
 function shuffle() {
-  cards.forEach(card => {
+  card.forEach(cards => {
     let ramdomPos = Math.floor(Math.random() * 8);
     card.style.order = ramdomPos;
   });
 }
 
-function flip(cards){
-    cards.forEach(card => {
+function flip(card){
+    card.forEach(card => {
       if(!card.classList.contains('flip')){
       card.classList.add('flip');
       }
@@ -93,11 +93,8 @@ function flip(cards){
    
 }
 
-
-
-
-cards.addEventListener("click", flip)
-resBtn.addEventListener("click", resetGame);
+card.addEventListener("click", flip)
+resBtn.addEventListener("click", shuffle);
 
 function isSame(){
     if (card1.className = card2.className){
@@ -108,14 +105,4 @@ function isSame(){
         return;
     }
 
-}
-
-
-function resetGame() {
-  cards.forEach(card => {
-    card.className.remove('flip'); //on remet les cartes à l'endroit
-  
-  })
-  shuffle(); //on mélange les cartes
-  reset(); //on reset le chrono
 }
