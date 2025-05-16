@@ -57,13 +57,13 @@ const resetChrono = () => {
   clearTimeout(timeout);
 };
 
-stopBtn.addEventListener("click", stop);
-resetBtn.addEventListener("click", resetChrono);
 resGameBtn.addEventListener("click", () => {
   resetChrono();
   shuffle();
   cardElements.forEach(card => card.classList.remove('flip'));
   resetText();
+  movementsTxt.innerText = "0";
+  movements = 0;
 });
 
 function flip(card) {
@@ -101,6 +101,7 @@ function checkMatch() {
     setTimeout(() =>{
     win();
     stop();
+    countMovments();
   },1000)
   matchpairs = 0;
   
@@ -113,11 +114,17 @@ function shuffle() {
   });
 }
 
+let movements = 0;
+
 cardElements.forEach(card => {
-  card.addEventListener('click', () => 
-    flip(card));
-  card.addEventListener('click', () =>
-  start());
+  card.addEventListener('click', () => {
+    flip(card);
+    movements++;
+    movementsTxt.innerText = movements / 2;
+  });
+  card.addEventListener('click', () => {
+    start();
+  });
 });
 
 function win(){
@@ -126,3 +133,10 @@ function win(){
 function resetText(){
    winTxt.innerText = ``;
 }
+
+let movementsTxt = document.querySelector(".movements");
+
+
+
+
+
