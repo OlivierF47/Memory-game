@@ -162,55 +162,55 @@ function diffChange(){
   movementsTxt.innerText = "";
   movements = 0;
     hard.innerHTML = `<div class="row">
-      <div class="card" data-image="cat">
+      <div class="card" data-image="panther">
         <div class="card-inner">
           <div class="back-card"><img src="images/question-mark.jpg"></div>
-          <div class="front-card"><img src="images/cat.jpg"></div>
+          <div class="front-card"><img src="images/panther.jpg"></div>
         </div>
       </div>
-      <div class="card" data-image="bear">
+      <div class="card" data-image="eagle">
         <div class="card-inner">
           <div class="back-card"><img src="images/question-mark.jpg"></div>
-          <div class="front-card"><img src="images/bear.jpg"></div>
+          <div class="front-card"><img src="images/eagle.jpg"></div>
         </div>
       </div>
-      <div class="card" data-image="lion">
+      <div class="card" data-image="elephant">
         <div class="card-inner">
           <div class="back-card"><img src="images/question-mark.jpg"></div>
-          <div class="front-card"><img src="images/lion.jpg"></div>
+          <div class="front-card"><img src="images/elephant.jpg"></div>
         </div>
       </div>
-      <div class="card" data-image="bear">
+      <div class="card" data-image="panther">
         <div class="card-inner">
           <div class="back-card"><img src="images/question-mark.jpg"></div>
-          <div class="front-card"><img src="images/bear.jpg"></div>
+          <div class="front-card"><img src="images/panther.jpg"></div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="card" data-image="dogs">
+      <div class="card" data-image="elephant">
         <div class="card-inner">
           <div class="back-card"><img src="images/question-mark.jpg"></div>
-          <div class="front-card"><img src="images/dogs.jpg"></div>
+          <div class="front-card"><img src="images/elephant.jpg"></div>
         </div>
       </div>
-      <div class="card" data-image="cat">
+      <div class="card" data-image="giraffe">
         <div class="card-inner">
           <div class="back-card"><img src="images/question-mark.jpg"></div>
-          <div class="front-card"><img src="images/cat.jpg"></div>
+          <div class="front-card"><img src="images/giraffe.jpg"></div>
         </div>
       </div>
-      <div class="card" data-image="lion">
+      <div class="card" data-image="giraffe">
         <div class="card-inner">
           <div class="back-card"><img src="images/question-mark.jpg"></div>
-          <div class="front-card"><img src="images/lion.jpg"></div>
+          <div class="front-card"><img src="images/giraffe.jpg"></div>
         </div>
       </div>
-      <div class="card" data-image="dogs">
+      <div class="card" data-image="eagle">
         <div class="card-inner">
           <div class="back-card"><img src="images/question-mark.jpg"></div>
-          <div class="front-card"><img src="images/dogs.jpg"></div>
+          <div class="front-card"><img src="images/eagle.jpg"></div>
         </div>
       </div>
     </div>
