@@ -110,6 +110,8 @@ function checkMatch() {
   }
 }
 
+
+
 function shuffle() {
   cardElements.forEach(card => {
     card.style.order = Math.floor(Math.random() * cardElements.length);
@@ -139,13 +141,100 @@ function win(){
       winTxt.innerText = `You finish in ${displayMin} : ${displaySec} you really need to train`
      }
 
-     movementsTxt.innerText = `mooves: ${movements / 2}`
+     movementsTxt.innerText = `moves: ${movements / 2}`
 }
 function resetText(){
    winTxt.innerText = ``;
 }
+const hard = document.querySelector("#hard");
+const diff = document.querySelector(".difficulty");
 
+diff.addEventListener("change",(e) => {
+  diffChange();
+});
 
+function diffChange(){
+  if(diff.value === "hard"){
+    resetChrono();
+  shuffle();
+  cardElements.forEach(card => card.classList.remove('flip'));
+  resetText();
+  movementsTxt.innerText = "";
+  movements = 0;
+    hard.innerHTML = `<div class="row">
+      <div class="card" data-image="cat">
+        <div class="card-inner">
+          <div class="back-card"><img src="images/question-mark.jpg"></div>
+          <div class="front-card"><img src="images/cat.jpg"></div>
+        </div>
+      </div>
+      <div class="card" data-image="bear">
+        <div class="card-inner">
+          <div class="back-card"><img src="images/question-mark.jpg"></div>
+          <div class="front-card"><img src="images/bear.jpg"></div>
+        </div>
+      </div>
+      <div class="card" data-image="lion">
+        <div class="card-inner">
+          <div class="back-card"><img src="images/question-mark.jpg"></div>
+          <div class="front-card"><img src="images/lion.jpg"></div>
+        </div>
+      </div>
+      <div class="card" data-image="bear">
+        <div class="card-inner">
+          <div class="back-card"><img src="images/question-mark.jpg"></div>
+          <div class="front-card"><img src="images/bear.jpg"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card" data-image="dogs">
+        <div class="card-inner">
+          <div class="back-card"><img src="images/question-mark.jpg"></div>
+          <div class="front-card"><img src="images/dogs.jpg"></div>
+        </div>
+      </div>
+      <div class="card" data-image="cat">
+        <div class="card-inner">
+          <div class="back-card"><img src="images/question-mark.jpg"></div>
+          <div class="front-card"><img src="images/cat.jpg"></div>
+        </div>
+      </div>
+      <div class="card" data-image="lion">
+        <div class="card-inner">
+          <div class="back-card"><img src="images/question-mark.jpg"></div>
+          <div class="front-card"><img src="images/lion.jpg"></div>
+        </div>
+      </div>
+      <div class="card" data-image="dogs">
+        <div class="card-inner">
+          <div class="back-card"><img src="images/question-mark.jpg"></div>
+          <div class="front-card"><img src="images/dogs.jpg"></div>
+        </div>
+      </div>
+    </div>
+`
+ document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        flip(card);
+        movements++;
+      });
+      card.addEventListener('click', () => {
+        start();
+      });
+    });
+
+  }else{
+    hard.innerHTML = ``;
+    resetChrono();
+  shuffle();
+  cardElements.forEach(card => card.classList.remove('flip'));
+  resetText();
+  movementsTxt.innerText = "";
+  movements = 0;
+  }
+}
 
 let movementsTxt = document.querySelector(".movements");
 
