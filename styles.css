@@ -107,6 +107,10 @@ h1 {
   gap: 10px;
 }
 
+.chronometre {
+  font-size: 1.7rem;
+}
+
 .buttons {
   display: flex;
   gap: 30px;
