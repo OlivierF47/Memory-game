@@ -44,7 +44,6 @@ body {
   cursor: pointer;
 }
 
-
 .card-inner {
   width: 100%;
   height: 100%;
@@ -98,7 +97,7 @@ button:hover {
 h1 {
   font-size: 3.5rem;
   text-align: center;
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 .top-bar {
@@ -120,6 +119,25 @@ h1 {
 
 p {
   font-size: 1.3rem;
+}
+
+.difficulty {
+  font-family: Orbitron, sans-serif;
+  width: 50%;
+  height: 5vh;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.difficulty:hover {
+  cursor: pointer;
+  background-color: var(--white-color);
+  color: var(--black-color);
 }
 
 #reset-game-btn {
