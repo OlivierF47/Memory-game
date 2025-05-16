@@ -60,10 +60,11 @@ const resetChrono = () => {
 resGameBtn.addEventListener("click", () => {
   resetChrono();
   shuffle();
-  cardElements.forEach(card => card.classList.remove('flip'));
+  document.querySelectorAll('.card').forEach(card => card.classList.remove('flip'));
   resetText();
   movementsTxt.innerText = "";
   movements = 0;
+  matchpairs = 0;
 });
 
 function flip(card) {
@@ -82,6 +83,7 @@ function flip(card) {
 }
 
 let matchpairs = 0;
+let totalPairs = 4;
 
 function checkMatch() {
   let img1 = card1.dataset.image;
@@ -99,7 +101,7 @@ function checkMatch() {
     card2 = null;
     matchpairs++;
   } 
-  if (matchpairs === 4){
+  if (matchpairs === totalPairs){
     setTimeout(() =>{
     win();
     stop();
@@ -109,8 +111,6 @@ function checkMatch() {
   
   }
 }
-
-
 
 function shuffle() {
   cardElements.forEach(card => {
@@ -131,18 +131,23 @@ cardElements.forEach(card => {
 });
 
 function win(){
-  if(displaySec <= 15){
-    winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec} you are the goat`
-     ;}else if (displaySec <= 30){
-       winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec} that's very good`
-     }else if (displaySec <=45){
-       winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec} that's good enough`
-     }else if (displayMin >= 1){
-      winTxt.innerText = `You finish in ${displayMin} : ${displaySec} you really need to train`
-     }
+  // Mise à jour des minutes/secondes si nécessaire
+  const currentSec = seconds < 10 ? `0${seconds}` : seconds;
+  const currentMin = minutes < 10 ? `0${minutes}` : minutes;
 
-     movementsTxt.innerText = `moves: ${movements / 2}`
+  if (seconds <= 15 && minutes === 0) {
+    winTxt.innerText = `Well done! You win in ${currentMin} minutes : ${currentSec} seconds — You are the GOAT!`;
+  } else if (seconds <= 30 && minutes === 0) {
+    winTxt.innerText = `Well done! You win in ${currentMin} minutes : ${currentSec} seconds — That's very good!`;
+  } else if (seconds <= 45 && minutes === 0) {
+    winTxt.innerText = `Well done! You win in ${currentMin} minutes : ${currentSec} seconds — That's good enough!`;
+  } else {
+    winTxt.innerText = `You finished in ${currentMin} minutes : ${currentSec} seconds — You really need to train!`;
+  }
+
+  movementsTxt.innerText = `Moves: ${Math.floor(movements / 2)}`;
 }
+
 function resetText(){
    winTxt.innerText = ``;
 }
@@ -155,6 +160,7 @@ diff.addEventListener("change",(e) => {
 
 function diffChange(){
   if(diff.value === "hard"){
+    totalPairs = 8;
     resetChrono();
   shuffle();
   cardElements.forEach(card => card.classList.remove('flip'));
@@ -226,6 +232,7 @@ function diffChange(){
     });
 
   }else{
+    totalPairs = 4;
     hard.innerHTML = ``;
     resetChrono();
   shuffle();
