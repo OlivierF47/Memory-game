@@ -120,3 +120,13 @@ h1 {
   display: block;
   margin: 40px auto;
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .chronometre {
+    font-size: 1.4rem;
+  }
+}
