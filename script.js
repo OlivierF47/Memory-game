@@ -62,7 +62,7 @@ resGameBtn.addEventListener("click", () => {
   shuffle();
   cardElements.forEach(card => card.classList.remove('flip'));
   resetText();
-  movementsTxt.innerText = "0";
+  movementsTxt.innerText = "";
   movements = 0;
 });
 
@@ -120,7 +120,6 @@ cardElements.forEach(card => {
   card.addEventListener('click', () => {
     flip(card);
     movements++;
-    movementsTxt.innerText = movements / 2;
   });
   card.addEventListener('click', () => {
     start();
@@ -129,6 +128,7 @@ cardElements.forEach(card => {
 
 function win(){
     winTxt.innerText = `Well done you win in ${displayMin} : ${displaySec}`
+    movementsTxt.innerText = `mooves: ${movements / 2}`;
 }
 function resetText(){
    winTxt.innerText = ``;
