@@ -76,11 +76,11 @@ function flip(card) {
     checkMatch();
   }
 }
-
+let matchpairs = 0;
 function checkMatch() {
   let img1 = card1.dataset.image;
   let img2 = card2.dataset.image;
-
+  
   if (img1 !== img2) {
     setTimeout(() => {
       card1.classList.remove('flip');
@@ -91,6 +91,13 @@ function checkMatch() {
   } else {
     card1 = null;
     card2 = null;
+    matchpairs++;
+  } 
+  if (matchpairs === 4){
+    setTimeout(() =>{
+    win();
+  },1000)
+  matchpairs = 0;
   }
 }
 
@@ -103,3 +110,7 @@ function shuffle() {
 cardElements.forEach(card => {
   card.addEventListener('click', () => flip(card));
 });
+
+function win(){
+    alert(``);
+}
