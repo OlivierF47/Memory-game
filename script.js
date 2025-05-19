@@ -144,7 +144,7 @@ function win(){
 
   movementsTxt.innerText = `Moves: ${Math.floor(movements / 2)}`;
 }
-
+//Reset du texte
 function resetText(){
    winTxt.innerText = ``;
 }
@@ -154,16 +154,15 @@ const diff = document.querySelector(".difficulty");
 diff.addEventListener("change",(e) => {
   diffChange();
 });
-
+//fonction
 function diffChange(){
   if(diff.value === "hard"){
     totalPairs = 8;
     resetChrono();
-  shuffle();
-  cardElements.forEach(card => card.classList.remove('flip'));
-  resetText();
-  movementsTxt.innerText = "";
-  movements = 0;
+    cardElements.forEach(card => card.classList.remove('flip'));
+    resetText();
+    movementsTxt.innerText = "";
+    movements = 0;
     hard.innerHTML = `<div class="row">
       <div class="card" data-image="panther">
         <div class="card-inner">
@@ -218,8 +217,8 @@ function diffChange(){
       </div>
     </div>
 `
-cardElements = document.querySelectorAll('.card');
- document.querySelectorAll('.card').forEach(card => {
+    cardElements = document.querySelectorAll('.card');
+    document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
         flip(card);
         movements++;
@@ -228,16 +227,16 @@ cardElements = document.querySelectorAll('.card');
         start();
       });
     });
-
+    shuffle();
   }else{
     totalPairs = 4;
     hard.innerHTML = ``;
     resetChrono();
-  shuffle();
-  cardElements.forEach(card => card.classList.remove('flip'));
-  resetText();
-  movementsTxt.innerText = "";
-  movements = 0;
+    shuffle();
+    cardElements.forEach(card => card.classList.remove('flip'));
+    resetText();
+    movementsTxt.innerText = "";
+    movements = 0;
   }
 }
 
