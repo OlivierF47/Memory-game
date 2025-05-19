@@ -1,7 +1,4 @@
-const cardElements = document.querySelectorAll('.card');
-const startBtn = document.getElementById("start");
-const stopBtn = document.getElementById("stop");
-const resetBtn = document.getElementById("reset");
+let cardElements = document.querySelectorAll('.card');
 const resGameBtn = document.getElementById("reset-game-btn");
 const chronoText = document.getElementById("chronoText");
 const winTxt = document.querySelector(".wintext");
@@ -221,6 +218,7 @@ function diffChange(){
       </div>
     </div>
 `
+cardElements = document.querySelectorAll('.card');
  document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
         flip(card);
