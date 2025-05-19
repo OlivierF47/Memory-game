@@ -54,6 +54,8 @@ const resetChrono = () => {
   clearTimeout(timeout);
 };
 
+//Reset avec appel des fonctions nécessaires
+
 resGameBtn.addEventListener("click", () => {
   resetChrono();
   shuffle();
@@ -63,6 +65,8 @@ resGameBtn.addEventListener("click", () => {
   movements = 0;
   matchpairs = 0;
 });
+
+//Fonction flip
 
 function flip(card) {
   if (card.classList.contains('flip') || cardFlipped && card === card1) return;
@@ -78,6 +82,8 @@ function flip(card) {
     checkMatch();
   }
 }
+
+//Fonction checkMatch
 
 let matchpairs = 0;
 let totalPairs = 4;
@@ -109,11 +115,15 @@ function checkMatch() {
   }
 }
 
+//Mélange des cartes 
+
 function shuffle() {
   cardElements.forEach(card => {
     card.style.order = Math.floor(Math.random() * cardElements.length);
   });
 }
+
+//Event pour flip les cartes
 
 let movements = 0;
 
@@ -126,6 +136,8 @@ cardElements.forEach(card => {
     start();
   });
 });
+
+//Function win
 
 function win(){
   // Mise à jour des minutes/secondes si nécessaire
@@ -142,19 +154,24 @@ function win(){
     winTxt.innerText = `You finished in ${currentMin} minutes : ${currentSec} seconds — You really need to train!`;
   }
 
-  movementsTxt.innerText = `Moves: ${Math.floor(movements / 2)}`;
+  movementsTxt.innerText = `Moves: ${movements / 2}`;
 }
-//Reset du texte
+
+//Reset du texte de victoire
+
 function resetText(){
    winTxt.innerText = ``;
-}
+} 
+
+//Function du changement de difficulté
+
 const hard = document.querySelector("#hard");
 const diff = document.querySelector(".difficulty");
 
 diff.addEventListener("change",(e) => {
   diffChange();
 });
-//fonction
+
 function diffChange(){
   if(diff.value === "hard"){
     totalPairs = 8;
