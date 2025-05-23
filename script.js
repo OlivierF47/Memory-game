@@ -1,7 +1,4 @@
-const cardElements = document.querySelectorAll('.card');
-const startBtn = document.getElementById("start");
-const stopBtn = document.getElementById("stop");
-const resetBtn = document.getElementById("reset");
+let cardElements = document.querySelectorAll('.card');
 const resGameBtn = document.getElementById("reset-game-btn");
 const chronoText = document.getElementById("chronoText");
 const winTxt = document.querySelector(".wintext");
@@ -59,6 +56,8 @@ const resetChrono = () => {
   clearTimeout(timeout);
 };
 
+//Reset avec appel des fonctions nécessaires
+
 resGameBtn.addEventListener("click", () => {
   resetChrono();
   shuffle();
@@ -69,6 +68,8 @@ resGameBtn.addEventListener("click", () => {
   matchpairs = 0;
   loackBoard = false;
 });
+
+//Fonction flip
 
 function flip(card) {
   if (card.classList.contains('flip') || cardFlipped && card === card1 || loackBoard) return;
@@ -85,6 +86,8 @@ function flip(card) {
     checkMatch();
   }
 }
+
+//Fonction checkMatch
 
 let matchpairs = 0;
 let totalPairs = 4;
@@ -120,11 +123,15 @@ function checkMatch() {
   }
 }
 
+//Mélange des cartes 
+
 function shuffle() {
   cardElements.forEach(card => {
     card.style.order = Math.floor(Math.random() * cardElements.length);
   });
 }
+
+//Event pour flip les cartes
 
 let movements = 0;
 
@@ -137,6 +144,8 @@ cardElements.forEach(card => {
     start();
   });
 });
+
+//Function win
 
 function win(){
   // Mise à jour des minutes/secondes si nécessaire
@@ -153,12 +162,17 @@ function win(){
     winTxt.innerText = `You finished in ${currentMin} minutes : ${currentSec} seconds — You really need to train!`;
   }
 
-  movementsTxt.innerText = `Moves: ${Math.floor(movements / 2)}`;
+  movementsTxt.innerText = `Moves: ${movements / 2}`;
 }
+
+//Reset du texte de victoire
 
 function resetText(){
    winTxt.innerText = ``;
-}
+} 
+
+//Function du changement de difficulté
+
 const hard = document.querySelector("#hard");
 const diff = document.querySelector(".difficulty");
 
@@ -170,11 +184,10 @@ function diffChange(){
   if(diff.value === "hard"){
     totalPairs = 8;
     resetChrono();
-  shuffle();
-  cardElements.forEach(card => card.classList.remove('flip'));
-  resetText();
-  movementsTxt.innerText = "";
-  movements = 0;
+    cardElements.forEach(card => card.classList.remove('flip'));
+    resetText();
+    movementsTxt.innerText = "";
+    movements = 0;
     hard.innerHTML = `<div class="row">
       <div class="card" data-image="panther">
         <div class="card-inner">
@@ -229,7 +242,8 @@ function diffChange(){
       </div>
     </div>
 `
- document.querySelectorAll('.card').forEach(card => {
+    cardElements = document.querySelectorAll('.card');
+    document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
         flip(card);
         movements++;
@@ -238,16 +252,16 @@ function diffChange(){
         start();
       });
     });
-
+    shuffle();
   }else{
     totalPairs = 4;
     hard.innerHTML = ``;
     resetChrono();
-  shuffle();
-  cardElements.forEach(card => card.classList.remove('flip'));
-  resetText();
-  movementsTxt.innerText = "";
-  movements = 0;
+    shuffle();
+    cardElements.forEach(card => card.classList.remove('flip'));
+    resetText();
+    movementsTxt.innerText = "";
+    movements = 0;
   }
 }
 

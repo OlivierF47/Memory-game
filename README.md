@@ -1,6 +1,6 @@
 Memory Game 
 
-🔗 Lien du site: #
+🔗 Lien du site: https://olivierf47.github.io/Memory-game/
 
 ✨ Ce projet est réalisé dans le cadre de la certification "Responsive Web Design" et "JavaScript Algorithms and Data Structures" de freeCodeCamp.
 🎯 Objectif du Projet
