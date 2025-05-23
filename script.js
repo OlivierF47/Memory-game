@@ -22,6 +22,9 @@ let totalPairs = 4;
 let score = 0;
 let movements = 0;
 
+let audioFlip = new Audio("flipcard.mp3");
+let audioChoice = new Audio("correct-choice.mp3");
+
 addEventListener("load", () => shuffle());
 
 // Charger le meilleur score depuis localStorage
@@ -99,12 +102,16 @@ function flip(card) {
     card1 = card;
     cardFlipped = true;
     movements++;
+    audioFlip.currentTime = 0;
+    audioFlip.play();
   } else {
     card2 = card;
     cardFlipped = false;
     loackBoard = true;
     checkMatch();
     movements++;
+    audioFlip.currentTime = 0;
+    audioFlip.play();
   }
   updateStats();
 }
@@ -131,6 +138,10 @@ function checkMatch() {
     matchpairs++;
     score += 10;
     updateStats();
+    setTimeout(() => {
+      audioChoice.play();
+    },800);
+    
   }
 
   if (matchpairs === totalPairs) {
@@ -144,9 +155,11 @@ function checkMatch() {
 
 // Mélange des cartes
 function shuffle() {
+  setTimeout(() => {
   cardElements.forEach(card => {
     card.style.order = Math.floor(Math.random() * cardElements.length);
   });
+}, 1000)
 }
 
 // Lier les cartes aux événements
