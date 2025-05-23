@@ -67,6 +67,8 @@ resGameBtn.addEventListener("click", () => {
   movements = 0;
   matchpairs = 0;
   loackBoard = false;
+  score = 0;
+  scoreText.innerText =`Score: ${score}`;
 });
 
 //Fonction flip
@@ -91,7 +93,7 @@ function flip(card) {
 
 let matchpairs = 0;
 let totalPairs = 4;
-
+let scoreText = document.querySelector(".scoretext");
 function checkMatch() {
   let img1 = card1.dataset.image;
   let img2 = card2.dataset.image;
@@ -103,13 +105,17 @@ function checkMatch() {
       card1 = null;
       card2 = null;
       loackBoard = false;
+      score = Math.max(0, score - 1);
+    scoreText.innerText =`Score: ${score}`;
     }, 1000);
+    
   } else {
     card1 = null;
     card2 = null;
     loackBoard = false;
     matchpairs++;
-
+    score += 10;
+    scoreText.innerText =`Score: ${score}`;
   } 
   if (matchpairs === totalPairs){
     setTimeout(() =>{
@@ -146,8 +152,14 @@ cardElements.forEach(card => {
 });
 
 //Function win
+localStorage.setItem("bestScore", score);
+let bestScore = localStorage.getItem("bestScore") || 0;
+let bestText = document.getElementById("bestscore");
+let score = 0;
 
+scoreText.innerText =`Score: ${score}`;
 function win(){
+
   // Mise à jour des minutes/secondes si nécessaire
   const currentSec = seconds < 10 ? `0${seconds}` : seconds;
   const currentMin = minutes < 10 ? `0${minutes}` : minutes;
@@ -171,10 +183,15 @@ if(diff.value === "easy"){
   } else if (seconds >= 30 && minutes === 1){
     winTxt.innerText = `You finished in ${currentMin} minutes : ${currentSec} seconds — You really need to train!`;
   } else if (minutes >= 2){
-    winTxt.innerText = `You finished in ${currentMin} minutes : ${currentSec} seconds — Bro... your sleeping or what ?`
+    winTxt.innerText = `You finished in ${currentMin} minutes : ${currentSec} seconds — Bro... you sleeping or what ?`
   }
 }
   movementsTxt.innerText = `Moves: ${movements / 2}`;
+
+  if(score > bestScore){
+    localStorage.setItem("bestScore", score);
+    bestText.innerText = bestScore;
+  }
 }
 
 //Reset du texte de victoire
@@ -202,6 +219,7 @@ diff.addEventListener("change",(e) => {
 function diffChange(){
   if(diff.value === "hard"){
     totalPairs = 8;
+    score = 0;
     hard.forEach(card => card.classList.add("visible"));
     resetChrono();
     cardElements.forEach(card => card.classList.remove('flip'));
@@ -250,7 +268,7 @@ function diffChange(){
           <div class="front-card"><img src="images/eagle.jpg"></div>
         </div>
       `
-    console.log(movements);
+    
     cardElements = document.querySelectorAll('.card');
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
@@ -264,7 +282,7 @@ function diffChange(){
   }else{
     hard.forEach(card => card.classList.remove("visible"));
     totalPairs = 4;
-    hard.innerHTML = ``;
+    score = 0;
     resetChrono();
     shuffle();
     cardElements.forEach(card => card.classList.remove('flip'));
