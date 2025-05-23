@@ -132,9 +132,11 @@ function checkMatch() {
 //Mélange des cartes 
 
 function shuffle() {
+  setTimeout(() => {
   cardElements.forEach(card => {
     card.style.order = Math.floor(Math.random() * cardElements.length);
   });
+}, 1000)
 }
 
 //Event pour flip les cartes
