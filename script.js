@@ -10,6 +10,8 @@ const winTxt = document.querySelector(".wintext");
 let card1 = null;
 let card2 = null;
 let cardFlipped = false;
+let loackBoard = false;
+
 
 // Chrono
 let minutes = 0;
@@ -65,10 +67,11 @@ resGameBtn.addEventListener("click", () => {
   movementsTxt.innerText = "";
   movements = 0;
   matchpairs = 0;
+  loackBoard = false;
 });
 
 function flip(card) {
-  if (card.classList.contains('flip') || cardFlipped && card === card1) return;
+  if (card.classList.contains('flip') || cardFlipped && card === card1 || loackBoard) return;
 
   card.classList.add('flip');
 
@@ -78,6 +81,7 @@ function flip(card) {
   } else {
     card2 = card;
     cardFlipped = false;
+    loackBoard = true;
     checkMatch();
   }
 }
@@ -95,17 +99,21 @@ function checkMatch() {
       card2.classList.remove('flip');
       card1 = null;
       card2 = null;
+      loackBoard = false;
     }, 1000);
   } else {
     card1 = null;
     card2 = null;
+    loackBoard = false;
     matchpairs++;
+
   } 
   if (matchpairs === totalPairs){
     setTimeout(() =>{
     win();
     stop();
     countMovments();
+   
   },1000)
   matchpairs = 0;
   
